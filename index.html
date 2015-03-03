@@ -47,7 +47,7 @@
           <p>
             <small>QCon London, 2015</small>
             <br>
-            <small><a href="http://dpp.rocks">David Pollak</a> / <a href="https://twitter.com/dpp">@dpp</a></small>
+            <small><a href="http://dpp.rocks">David Pollak</a> / <a href="https://twitter.com/dpp">@dpp</a> / <a href="https://github.com/dpp/qcon_london_2015">Source</a></small>
           </p>
         </section>
 
@@ -77,7 +77,7 @@
           <ul>
             <li class="fragment"><a href="http://en.wikipedia.org/wiki/Heartbleed">Heartbleed</a></li>
             <li class="fragment"><a href="http://en.wikipedia.org/wiki/Shellshock_(software_bug)">Shellshock</a></li>
-            <li class="fragment"><a href="http://en.wikipedia.org/wiki/POODLE">POODLE</a></li>
+            <li class="fragment"><a href="http://www.darkreading.com/sql-injection-attacks-haunt-retailers/d/d-id/1269576">Target<span class="fragment">: an SQL Injection</span></a></li>
           </ul>
 
           <div class="fragment">Failures to interpret data</div>
@@ -107,6 +107,12 @@
           <img class="fragment" src="img/Scared_Dog.jpg">
         </section>
 
+        <section>
+          <h1>Turing Complete</h1>
+          <h1 class="fragment">==</h1>
+          <h1 class="fragment">Executable Code</h1>
+        </section>
+
 
         <section>
           <h2><a href="http://beza1e1.tuxen.de/articles/accidentally_turing_complete.html">Turing Complete</a></h2>
@@ -114,6 +120,7 @@
             <li><a href="http://boingboing.net/2012/09/12/magic-the-gathering.html">Magic: The Gathering</a></li>
             <li class="fragment"><a href="https://web.archive.org/web/20130101055126/http://mentalpolyphonics.com/posts/wikimedia-proves-greenspuns-tenth-law">MediaWiki Templates</a></li>
             <li class="fragment"><a href="http://olsner.se/2008/01/21/an-excursion-in-mod_rewrite/">Apache Rewrite Rules</a></li>
+            <li class="fragment"><a href="http://boingboing.net/2013/09/20/implementing-a-turing-machine.html">Excel</a></li>
 
           </ul>
         </section>
@@ -124,9 +131,13 @@
           <ul>
             <li>If it's Turing Complete, it can do anything</li>
             <li class="fragment">No matter what you think, securing Turing complete is hard</li>
-            <li class="fragment">Out damned spot<span class="fragment">: you can't clean the data</span></li>
+            <li class="fragment">Out damned spot<span class="fragment">: you can't &ldquo;clean&rdquo; the program</span></li>
           </ul>
           <img class="fragment" src="img/cat_macbeth2.jpg" height="350px">
+        </section>
+
+        <section>
+          <h1>Let's talk Securing Things</h1>
         </section>
 
         <section>
@@ -173,8 +184,114 @@
           <img class="fragment" src="img/fig5_2.jpg" height="400px">
         </section>
 
+        <section>
+          <h1>Layers:<br> it's a start</h1>
+        </section>
 
+        <section>
+          <h2>PaaS is Different</h2>
+          <ul>
+            <li>User code needs some access</li>
+            <li class="fragment">Multitenant</li>
+            <li class="fragment">Usage: Metering/Logging/Throttling</li>
+          </ul>
 
+          <h3 class="fragment">Protecting users from other users</h3>
+          <img class="fragment" src="img/Rugby-Scrum.jpg">
+        </section>
+
+        <section>
+          <h2>In a Picture</h2>
+          <img src="img/paas_overview.svg">
+        </section>
+
+        <section>
+          <h2>Each &ldquo;Tenant&rdquo;</h2>
+          <img src="img/paas_zoom.svg">
+        </section>
+
+        <section>
+          <h2>We have a Picture</h2>
+
+          <ul>
+            <li>Isolate Each Tenant</li>
+            <li class="fragment">&ldquo;LAN&rdquo; for per-tenant services</li>
+            <li class="fragment">Careful attachment to shared services</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Share with Care</h2>
+
+          <ul>
+            <li>Shared services subject to attack</li>
+            <li class="fragment">Attempt read-only &amp; write-only services
+              <ul class="fragment">
+                <li>Write-Only: Logging</li>
+                <li>Read-Only: Shared &ldquo;master data&rdquo;</li>
+                <li>Write-Only: Alerting services to avoid cross-LAN traffic</li>
+              </ul>
+            </li>
+            <li class="fragment">Careful attachment to shared services</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Picture &#8658; Model</h2>
+
+          <ul>
+            <li>Containers run each app/service</li>
+            <li class="fragment">Virtual LANs wire per-tenant apps &amp; services</li>
+            <li class="fragment">Sounds like Docker and Weave<span class="fragment">&hellip; finally/yay!</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Mechanics</h2>
+
+          <ul>
+            <li>Each app and each local-to-tenant service in its own Docker Container</li>
+            <li class="fragment">Each tenant on their own Weave subnet</li>
+            <li class="fragment">Shared services on each subnet</li>
+          </ul>
+          <img class="fragment" src="img/paas_zoom.svg" height="300">
+        </section>
+
+        <section>
+          <h2>Well&hellip; a little fudging</h2>
+
+          <ul>
+            <li>RDBMS should be shared with table/column access controls handled by RDBMS</li>
+            <li class="fragment"></li>
+            <li class="fragment"></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Security &amp; Threat Models</h2>
+
+          <ul>
+            <li>RDBMS should be shared with table/column access controls handled by RDBMS</li>
+            <li class="fragment">Read/write HDFS may be shared with upcoming access controls</li>
+            <li class="fragment"></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Wrap Up</h2>
+
+          <ul>
+            <li>Machines <span class="fragment">&#8658; Virtualization <span class="fragment">&#8658; Containers</span></span></li>
+            <li class="fragment">Network Isolation <span class="fragment">'cause TCP/IP just works</span></li>
+            <li class="fragment">A layer in the security model</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+          <hr>
+          <h1>Thanks!</h1>
+        </section>
       </div>
 
     </div>
