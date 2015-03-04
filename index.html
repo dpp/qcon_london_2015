@@ -40,8 +40,8 @@
     <div class="reveal">
 
       <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
-        <section>
+      <div class="slides" data-background="img/logo.png">
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h1>Securing PaaS</h1>
           <h3>with Docker and Weave</h3>
           <p>
@@ -51,18 +51,19 @@
           </p>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>About @dpp</h2>
 
           <ul>
             <li>Founded Lift web framework</li>
             <li class="fragment">Wrote a bunch of commercial spreadsheets</li>
-            <li class="fragment">Former CTO/VP Eng <a href="http://cenzic">Cenzic</a></li>
+            <li class="fragment">Former CTO/VP Eng <a href="http://cenzic.com">Cenzic</a></li>
+            <li class="fragment">Founder/Consultant <a href="http://brickalloy.com">Brick Alloy</a></li>
             <li class="fragment">Crazy passionate lawyer-trained tech dude</li>
           </ul>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Visi</h2>
 
           <ul>
@@ -72,9 +73,10 @@
           </ul>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Notable Security Failures</h2>
           <ul>
+            <li class="fragment"><a href="http://www.cnet.com/news/decade-old-freak-security-flaw-left-millions-exposed/">FREAK</a></li>
             <li class="fragment"><a href="http://en.wikipedia.org/wiki/Heartbleed">Heartbleed</a></li>
             <li class="fragment"><a href="http://en.wikipedia.org/wiki/Shellshock_(software_bug)">Shellshock</a></li>
             <li class="fragment"><a href="http://www.darkreading.com/sql-injection-attacks-haunt-retailers/d/d-id/1269576">Target<span class="fragment">: an SQL Injection</span></a></li>
@@ -83,7 +85,7 @@
           <div class="fragment">Failures to interpret data</div>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2><a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">OWASP Top 10</a></h2>
           <ul>
             <li class="fragment"><a href="https://www.owasp.org/index.php/Top_10_2013-A1-Injection">Injection</a><span class="fragment">: occurs when an application sends untrusted data to an interpreter</span></li>
@@ -94,7 +96,7 @@
           <div class="fragment"><b>NEVER</b> trust what's on the wire</div>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>What
             <span class="fragment">if</span>
             <span class="fragment">what's</span>
@@ -107,14 +109,14 @@
           <img class="fragment" src="img/Scared_Dog.jpg">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h1>Turing Complete</h1>
           <h1 class="fragment">==</h1>
           <h1 class="fragment">Executable Code</h1>
         </section>
 
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2><a href="http://beza1e1.tuxen.de/articles/accidentally_turing_complete.html">Turing Complete</a></h2>
           <ul>
             <li><a href="http://boingboing.net/2012/09/12/magic-the-gathering.html">Magic: The Gathering</a></li>
@@ -126,8 +128,8 @@
         </section>
 
 
-        <section>
-          <h2>&quot;Real&quot; Programs</h2>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
+          <h2>&ldquo;Real&rdquo; Programs</h2>
           <ul>
             <li>If it's Turing Complete, it can do anything</li>
             <li class="fragment">No matter what you think, securing Turing complete is hard</li>
@@ -136,18 +138,18 @@
           <img class="fragment" src="img/cat_macbeth2.jpg" height="350px">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h1>Let's talk Securing Things</h1>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>How do you truly secure data?</h2>
 
           <div class="fragment">Add a lot of entropy</div>
           <img class="fragment" src="img/la-ecuador-volcano01.jpg" height="400px">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>How do you secure data
             <span  class="fragment"><b>and</b> make it accessible?</span></h2>
 
@@ -155,7 +157,7 @@
           <h1 class="fragment">Layers</h1>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Layers in Biology</h2>
 
           <br>
@@ -163,32 +165,32 @@
         </section>
 
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Layers in Clothing</h2>
 
           <br>
           <img class="fragment" src="img/228529_15892_L.jpg" height="400px">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Medieval Layers</h2>
 
           <br>
           <img class="fragment" src="img/castle2.jpg" height="400px">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Layers in Physical Security</h2>
 
           <br>
           <img class="fragment" src="img/fig5_2.jpg" height="400px">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h1>Layers:<br> it's a start</h1>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>PaaS is Different</h2>
           <ul>
             <li>User code needs some access</li>
@@ -200,17 +202,17 @@
           <img class="fragment" src="img/Rugby-Scrum.jpg">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>In a Picture</h2>
           <img src="img/paas_overview.svg">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Each &ldquo;Tenant&rdquo;</h2>
           <img src="img/paas_zoom.svg">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>We have a Picture</h2>
 
           <ul>
@@ -220,7 +222,7 @@
           </ul>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Share with Care</h2>
 
           <ul>
@@ -236,7 +238,7 @@
           </ul>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Picture &#8658; Model</h2>
 
           <ul>
@@ -246,7 +248,7 @@
           </ul>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Mechanics</h2>
 
           <ul>
@@ -257,8 +259,18 @@
           <img class="fragment" src="img/paas_zoom.svg" height="300">
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Well&hellip; a little fudging</h2>
+
+          <ul>
+            <li>RDBMS should be shared with table/column access controls handled by RDBMS</li>
+            <li class="fragment">Read/write HDFS may be shared with upcoming access controls</li>
+            <li class="fragment"></li>
+          </ul>
+        </section>
+
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
+          <h2>Security &amp; Threat Models</h2>
 
           <ul>
             <li>RDBMS should be shared with table/column access controls handled by RDBMS</li>
@@ -267,7 +279,7 @@
           </ul>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Security &amp; Threat Models</h2>
 
           <ul>
@@ -277,7 +289,7 @@
           </ul>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Wrap Up</h2>
 
           <ul>
@@ -287,7 +299,7 @@
           </ul>
         </section>
 
-        <section>
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h1>Questions?</h1>
           <hr>
           <h1>Thanks!</h1>
