@@ -79,7 +79,7 @@
             <li class="fragment"><a href="http://www.cnet.com/news/decade-old-freak-security-flaw-left-millions-exposed/">FREAK</a></li>
             <li class="fragment"><a href="http://en.wikipedia.org/wiki/Heartbleed">Heartbleed</a></li>
             <li class="fragment"><a href="http://en.wikipedia.org/wiki/Shellshock_(software_bug)">Shellshock</a></li>
-            <li class="fragment"><a href="http://www.darkreading.com/sql-injection-attacks-haunt-retailers/d/d-id/1269576">Target<span class="fragment">: an SQL Injection</span></a></li>
+            <li class="fragment"><a href="http://www.darkreading.com/sql-injection-attacks-haunt-retailers/d/d-id/1269576">Target CC Loss<span class="fragment">: an SQL Injection</span></a></li>
           </ul>
 
           <div class="fragment">Failures to interpret data</div>
@@ -122,7 +122,7 @@
             <li><a href="http://boingboing.net/2012/09/12/magic-the-gathering.html">Magic: The Gathering</a></li>
             <li class="fragment"><a href="https://web.archive.org/web/20130101055126/http://mentalpolyphonics.com/posts/wikimedia-proves-greenspuns-tenth-law">MediaWiki Templates</a></li>
             <li class="fragment"><a href="http://olsner.se/2008/01/21/an-excursion-in-mod_rewrite/">Apache Rewrite Rules</a></li>
-            <li class="fragment"><a href="http://boingboing.net/2013/09/20/implementing-a-turing-machine.html">Excel</a></li>
+            <li class="fragment"><a href="http://boingboing.net/2013/09/20/implementing-a-turing-machine.html">Excel</a><span class="fragment"> Yes! Excel!</span></li>
 
           </ul>
         </section>
@@ -191,15 +191,27 @@
         </section>
 
         <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
-          <h2>PaaS is Different</h2>
+          <h2>Security:<br>Mentality and Granulatity</h2>
           <ul>
+            <li class="fragment">Hiring Replaceable <strike>Parts</strike>People</li>
+            <li class="fragment">Security folks are paranoid<span class="fragment">: always thinking attack vectors</span></li>
+            <li class="fragment">JVM Security Manager<span class="fragment">: too granular</span></li>
+            <li class="fragment">Intending Consequences<span class="fragment">: getting it right by default</span></li>
+          </ul>
+        </section>
+
+
+
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
+          <h2>PaaS is Different</h2>
+          <h3 class="fragment">Protecting users from other users</h3>
+          <img class="fragment" src="img/Rugby-Scrum.jpg">
+          <ul class="fragment">
             <li>User code needs some access</li>
             <li class="fragment">Multitenant</li>
             <li class="fragment">Usage: Metering/Logging/Throttling</li>
           </ul>
 
-          <h3 class="fragment">Protecting users from other users</h3>
-          <img class="fragment" src="img/Rugby-Scrum.jpg">
         </section>
 
         <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
@@ -231,10 +243,11 @@
               <ul class="fragment">
                 <li>Write-Only: Logging</li>
                 <li>Read-Only: Shared &ldquo;master data&rdquo;</li>
-                <li>Write-Only: Alerting services to avoid cross-LAN traffic</li>
+                <li>Write-Only: Alerting services</li>
               </ul>
             </li>
             <li class="fragment">Careful attachment to shared services</li>
+            <li class="fragment">Forbid Cross-LAN Traffic</li>
           </ul>
         </section>
 
@@ -264,8 +277,9 @@
 
           <ul>
             <li>RDBMS should be shared with table/column access controls handled by RDBMS</li>
-            <li class="fragment">Read/write HDFS may be shared with upcoming access controls</li>
-            <li class="fragment"></li>
+            <li class="fragment">Read/write HDFS may be shared with <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html">access controls</a></li>
+            <li class="fragment">Standard: I/O heavy services with well defined security models may be shared</li>
+            <li class="fragment">Per Tenant Credentials<span class="fragment"> that are not globally visible</span></li>
           </ul>
         </section>
 
@@ -273,20 +287,23 @@
           <h2>Security &amp; Threat Models</h2>
 
           <ul>
-            <li>RDBMS should be shared with table/column access controls handled by RDBMS</li>
-            <li class="fragment"></li>
-            <li class="fragment"></li>
+            <li>Modes:
+              <ul>
+                <li>App to host via code</li>
+                <li>App to host via network</li>
+                <li>App to app via network</li>
+                <li>App to shared services</li>
+              </ul>
+            </li>
+            <li class="fragment">Docker instances <a href="https://docs.docker.com/articles/security/">reasonably well isolated</a> from host</li>
+            <li class="fragment">Weave subnets <a href="https://zettio.github.io/weave/features.html#application-isolation">isolate containers</a></li>
+            <li class="fragment">Services: credentials &amp; per-service security</li>
           </ul>
         </section>
 
         <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
-          <h2>Security &amp; Threat Models</h2>
+          <h1>The Demo</h1>
 
-          <ul>
-            <li>RDBMS should be shared with table/column access controls handled by RDBMS</li>
-            <li class="fragment">Read/write HDFS may be shared with upcoming access controls</li>
-            <li class="fragment"></li>
-          </ul>
         </section>
 
         <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
