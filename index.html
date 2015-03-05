@@ -74,6 +74,29 @@
         </section>
 
         <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
+          <h2>Different @dpp Presentation</h2>
+
+          <ul>
+            <li>Tend to promote clever things like NextStep &amp; Scala</li>
+            <li class="fragment">Not this time</li>
+            <li class="fragment">Security is about clarity<span class="fragment"> not being clever</span></li>
+            <li class="fragment">Security is about being successful when you're very drunk</li>
+          </ul>
+        </section>
+
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
+          <h2>Security:<br>Mentality and Granulatity</h2>
+          <ul>
+            <li class="fragment">Hiring Replaceable <strike>Parts</strike>People</li>
+            <li class="fragment">Security folks are paranoid<span class="fragment">: always thinking attack vectors</span></li>
+            <li class="fragment">JVM Security Manager<span class="fragment">: too granular &amp; can't hire for it</span></li>
+            <li class="fragment">Intending Consequences<span class="fragment">: getting it right by default</span></li>
+          </ul>
+        </section>
+
+
+
+        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
           <h2>Notable Security Failures</h2>
           <ul>
             <li class="fragment"><a href="http://www.cnet.com/news/decade-old-freak-security-flaw-left-millions-exposed/">FREAK</a></li>
@@ -190,16 +213,6 @@
           <h1>Layers:<br> it's a start</h1>
         </section>
 
-        <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
-          <h2>Security:<br>Mentality and Granulatity</h2>
-          <ul>
-            <li class="fragment">Hiring Replaceable <strike>Parts</strike>People</li>
-            <li class="fragment">Security folks are paranoid<span class="fragment">: always thinking attack vectors</span></li>
-            <li class="fragment">JVM Security Manager<span class="fragment">: too granular</span></li>
-            <li class="fragment">Intending Consequences<span class="fragment">: getting it right by default</span></li>
-          </ul>
-        </section>
-
 
 
         <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
@@ -292,26 +305,28 @@
                 <li>App to host via code</li>
                 <li>App to host via network</li>
                 <li>App to app via network</li>
+                <li>App to world via network</li>
                 <li>App to shared services</li>
               </ul>
             </li>
             <li class="fragment">Docker instances <a href="https://docs.docker.com/articles/security/">reasonably well isolated</a> from host</li>
-            <li class="fragment">Weave subnets <a href="https://zettio.github.io/weave/features.html#application-isolation">isolate containers</a></li>
+            <li class="fragment">Weave subnets <a href="https://zettio.github.io/weave/features.html#application-isolation">isolate tenants</a></li>
+            <li class="fragment">iptables secures rest of network</li>
             <li class="fragment">Services: credentials &amp; per-service security</li>
           </ul>
         </section>
 
         <section data-background="img/logo.png" data-background-size="150px" data-background-position="left top">
-          <h2>Key settings</h2>
+          <h2>Takeaways</h2>
 
           <ul>
-            <li><code>/etc/default/docker</code><br>add
-              <br><code>--icc=false</code>
-              <br>to <code>DOCKER_OPTS</code>: No intercontainer communication except via Weave
+            <li><code>--icc=false</code>
+              <br>in <code>DOCKER_OPTS</code><br>
+              : No intercontainer communication except via Weave
+
             </li>
-            <li class="fragment"><code>sudo weave run 10.0.1.3/24 \<br>&nbsp;&nbsp;<b>--net='none'</b> -d -it \<br>&nbsp;&nbsp;-dockerfile/java /bin/bash</code><br> for containers that do not need to see the world</li>
-            <li class="fragment">Weave subnets <a href="https://zettio.github.io/weave/features.html#application-isolation">isolate containers</a></li>
-            <li class="fragment">Services: credentials &amp; per-service security</li>
+            <li class="fragment">Use iptables to control/restrict <a href="https://docs.docker.com/articles/networking/#communication-between-containers-and-the-wider-world">bridge traffic to well known ports &amp; public hosts</a></li>
+            <li class="fragment">Partition tenants onto separate Weave subnets</li>
           </ul>
         </section>
 
@@ -325,7 +340,7 @@
 
           <ul>
             <li>Machines <span class="fragment">&#8658; Virtualization <span class="fragment">&#8658; Containers</span></span></li>
-            <li class="fragment">Network Isolation <span class="fragment">'cause TCP/IP just works</span></li>
+            <li class="fragment">Network Isolation <span class="fragment">'cause <code>iptables</code> just works</span></li>
             <li class="fragment">A layer in the security model</li>
           </ul>
         </section>
